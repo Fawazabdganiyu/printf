@@ -1,12 +1,13 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-#define BUFFER_SIZE 1024
+#define INT_BUFFER_SIZE 10
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
+#include <limits.h>
 
 /**
  * print - custom data type for pointer to function

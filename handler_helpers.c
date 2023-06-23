@@ -53,7 +53,7 @@ int _strlen(char *s)
 int put_int(int num)
 {
 	int sign, i = 0, count;
-	char s[BUFFER_SIZE];
+	char s[INT_BUFFER_SIZE];
 
 	sign = num;
 	if (sign < 0)
