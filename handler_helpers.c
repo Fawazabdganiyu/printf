@@ -53,9 +53,16 @@ int _strlen(char *s)
 */
 int put_int(int num)
 {
-	int sign, i = 0, count;
-	char s[INT_BUFFER_SIZE];
+	int sign, i = 0, count, num_copy = num, len;
+	char *s;
 
+	while (num_copy > 0)
+	{
+		len++;
+		num_copy /= 10;
+	}
+
+	s = malloc(sizeof(char) * (len + 1));
 	sign = num;
 	if (sign < 0)
 		num = -num;
@@ -72,6 +79,7 @@ int put_int(int num)
 
 	reverse(s);
 	count = _puts(s);
+	free(s);
 
 	return (count);
 }

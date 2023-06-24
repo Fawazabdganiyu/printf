@@ -40,9 +40,15 @@ char *dec_bin(unsigned int num)
 */
 int put_u_int(unsigned int num)
 {
-	int i = 0, count;
-	char s[INT_BUFFER_SIZE];
+	int i = 0, count, num_copy = num, len = 0;
+	char *s;
 
+	while (num_copy > 0)
+	{
+		len++;
+		num_copy /= 10;
+	}
+	s = malloc(sizeof(char) * len + 1);
 	while (num > 0)
 	{
 		s[i++] = (num % 10) + '0';
@@ -52,6 +58,7 @@ int put_u_int(unsigned int num)
 
 	reverse(s);
 	count = _puts(s);
+	free(s);
 
 	return (count);
 }
