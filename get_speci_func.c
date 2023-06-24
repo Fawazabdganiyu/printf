@@ -19,6 +19,8 @@ print get_speci_func(char ind)
 		{"b", print_bin},
 		{"u", print_unsigned},
 		{"o", print_oct},
+		{"x", print_hex},
+		{"X", print_HEX},
 		{NULL, NULL}
 	};
 

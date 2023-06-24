@@ -31,6 +31,11 @@ int _printf(const char *format, ...)
 		{
 			retval += func(ap);
 		}
+		else
+		{
+			retval += _putchar(ptr[i - 1]);
+			retval += _putchar(ptr[i]);
+		}
 	}
 
 	va_end(ap);

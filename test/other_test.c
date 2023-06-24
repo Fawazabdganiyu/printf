@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-    int len, len3, len4;
+    int len;
     int len2;
     unsigned int ui;
     void *addr;
@@ -38,12 +38,35 @@ int main(void)
     len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
- len3 =  _printf("Unknown:[%r]\n");
- len4 =  printf("Unknown:[%r]\n");
- printf("len3 = %d, len4 = %d\n", len3, len4);
-    _printf("%\n");
-    printf("%\n");
-/*    _printf("%\n");
-    printf("%\n");
-  */  return (0);
+    _printf("Unknown:[%r]\n");
+    printf("Unknown:[%r]\n");
+
+    /*Bing's test*/
+    _printf("Empty string: [%s]\n", "");
+    printf("Empty string: [%s]\n", "");
+
+    /*_printf("NULL string: [%s]\n", NULL);*/
+    printf("NULL string: [%s]\n", NULL);
+
+    _printf("Binary: [%b]\n", 98);
+    printf("Binary: [1100010]\n");
+
+    _printf("Octal with precision and width: [%#10.5o]\n", 98);
+    printf("Octal with precision and width: [%#10.5o]\n", 98);
+
+    _printf("Hexadecimal with precision and width: [%#10.5x]\n", 98);
+    printf("Hexadecimal with precision and width: [%#10.5x]\n", 98);
+
+    _printf("Hexadecimal with precision and width (uppercase): [%#10.5X]\n", 98);
+    printf("Hexadecimal with precision and width (uppercase): [%#10.5X]\n", 98);
+
+    _printf("Unsigned with precision and width: [%10.5u]\n", 98);
+    printf("Unsigned with precision and width: [%10.5u]\n", 98);
+
+    len = _printf("%");
+    len2 = printf("%");
+
+    _printf("\nLength of invalid format specifier: %d\n", len);
+    printf("\nLength of invalid format specifier: %d\n", len2);
+    return (0);
 }
