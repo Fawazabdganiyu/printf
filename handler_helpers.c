@@ -18,14 +18,15 @@ int _putchar(char c)
 */
 int _puts(char *s)
 {
+	char *str = (s == NULL) ? "(null)" : s;
 	int i = 0;
 
-	while (s[i])
+	while (str[i])
 	{
-		_putchar(s[i++]);
+		_putchar(str[i++]);
 	}
 
-	return (_strlen(s));
+	return (_strlen(str));
 }
 
 /**
