@@ -26,6 +26,7 @@ int _puts(char *s);
 int put_int(int num);
 void reverse(char *s);
 char *dec_bin(unsigned int num);
+char *dec_hex(unsigned int num, char h_case);
 
 /* specifier handlers */
 int print_char(va_list ap);
@@ -33,6 +34,8 @@ int print_str(va_list ap);
 int print_int(va_list ap);
 int print_per(va_list ap);
 int print_bin(va_list ap);
+int print_HEX(va_list ap);
+int print_hex(va_list ap);
 
 /**
  * struct handle_s - structure for the specifiers and their corresponding

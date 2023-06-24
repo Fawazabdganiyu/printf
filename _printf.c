@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			continue;
 		}
 
-		func = wrapper(ptr[++i]);
+		func = get_speci_func(ptr[++i]);
 		if (func != NULL)
 		{
 			retval += func(ap);
