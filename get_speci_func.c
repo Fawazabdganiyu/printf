@@ -17,6 +17,8 @@ print get_speci_func(char ind)
 		{"c", print_char},
 		{"%", print_per},
 		{"b", print_bin},
+		{"u", print_unsigned},
+		{"o", print_oct},
 		{NULL, NULL}
 	};
 

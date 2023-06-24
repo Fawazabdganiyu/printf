@@ -1,7 +1,7 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-#define INT_BUFFER_SIZE 10
+#define INT_BUFFER_SIZE 11
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -27,6 +27,8 @@ int _puts(char *s);
 int put_int(int num);
 void reverse(char *s);
 char *dec_bin(unsigned int num);
+int put_u_int(unsigned int num);
+int put_dec_oct(unsigned int num);
 
 /* specifier handlers */
 int print_char(va_list ap);
@@ -34,6 +36,8 @@ int print_str(va_list ap);
 int print_int(va_list ap);
 int print_per(va_list ap);
 int print_bin(va_list ap);
+int print_unsigned(va_list ap);
+int print_oct(va_list ap);
 
 /**
  * struct handle_s - structure for the specifiers and their corresponding
