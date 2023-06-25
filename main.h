@@ -30,6 +30,7 @@ char *dec_bin(unsigned int num);
 int put_u_int(unsigned int num);
 int put_dec_oct(unsigned int num);
 char *dec_hex(unsigned int num, char h_case);
+const char *reduce_blank(const char *format, va_list ap, int *retval);
 
 /* specifier handlers */
 int print_char(va_list ap);

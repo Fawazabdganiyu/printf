@@ -1,5 +1,11 @@
 #include "main.h"
 
+int _putchar(char c);
+int _puts(char *s);
+int _strlen(char *s);
+int put_int(int num);
+void reverse(char *s);
+
 /**
  * _putchar - prints a char
  * @c: char to print

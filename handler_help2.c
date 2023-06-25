@@ -1,4 +1,11 @@
 #include "main.h"
+#include <stdio.h>
+
+char *dec_bin(unsigned int num);
+int put_u_int(unsigned int num);
+int put_dec_oct(unsigned int num);
+char *dec_hex(unsigned int num, char h_case);
+const char *reduce_blank(const char *s, va_list ap, int *retval);
 
 /**
  * dec_bin - converts decimal to binary
@@ -111,3 +118,36 @@ char *dec_hex(unsigned int num, char h_case)
 	return (str);
 }
 
+/**
+ * reduce_blank - reduces exess string space character after %
+ * @s: The string to check for space character
+ *
+ * Return: A pointer to the non space character
+ */
+ const char *reduce_blank(const char *s, va_list ap, int *retval)
+{
+	print func;
+	char space = ' ';
+
+	while (1)
+	{
+		if (*s != space)
+		{
+			break;
+		}
+		s++;
+	}
+
+	/* check if that non space character is one if the specifiers */
+	func = get_speci_func(*s);
+	if (func != NULL)
+	{
+		*retval = func(ap);
+
+		return (s + 2);
+	}
+
+	*retval = 0;
+
+	return (s + 1);
+}

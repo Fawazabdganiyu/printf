@@ -11,9 +11,10 @@
 int _printf(const char *format, ...)
 {
 	const char *ptr;
-	int retval = 0, i;
+	int retval = 0, add_retval = 0, i;
 	va_list ap;
 	print func;
+	char space = ' ';
 
 	if (format == NULL)
 		exit(EXIT_FAILURE);
@@ -37,8 +38,12 @@ int _printf(const char *format, ...)
 		{
 			retval += _putchar(ptr[i - 1]);
 			retval += _putchar(ptr[i]);
+			if (ptr[i + 1] == space)
+			{
+				ptr = reduce_blank((ptr + i), ap, &add_retval);
+				retval += add_retval;
+			}
 		}
-		retval -= 2;
 	}
 
 	va_end(ap);
