@@ -1,4 +1,11 @@
 #include "main.h"
+#include <stdio.h>
+
+char *dec_bin(unsigned int num);
+int put_u_int(unsigned int num);
+int put_dec_oct(unsigned int num);
+char *dec_hex(unsigned int num, char h_case);
+const char *reduce_blank(const char *s);
 
 /**
  * dec_bin - converts decimal to binary
@@ -109,5 +116,27 @@ char *dec_hex(unsigned int num, char h_case)
 	str[i] = '\0';
 	reverse(str);
 	return (str);
+}
+
+/**
+ * reduce_blank - reduces exess string space character after %
+ * @s: The string to check for space character
+ *
+ * Return: A pointer to the non space character
+ */
+const char *reduce_blank(const char *s)
+{
+	char space = ' ';
+
+	while (1)
+	{
+		if (*s != space)
+		{
+			break;
+		}
+		s++;
+	}
+
+	return (s);
 }
 

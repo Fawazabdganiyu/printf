@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	const char *ptr;
-	int retval = 0, i;
+	int retval = 0;
 	va_list ap;
 	print func;
 
@@ -20,23 +20,23 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 	ptr = format;
-	for (i = 0; ptr[i]; i++)
+	for (; *ptr; ptr++)
 	{
-		if (ptr[i] != '%')
+		if (*ptr != '%')
 		{
-			retval += _putchar(ptr[i]);
+			retval += _putchar(*ptr);
 			continue;
 		}
-
-		func = get_speci_func(ptr[++i]);
+		ptr = reduce_blank(ptr + 1);
+		func = get_speci_func(*ptr);
 		if (func != NULL)
 		{
 			retval += func(ap);
 		}
 		else
 		{
-			retval += _putchar(ptr[i - 1]);
-			retval += _putchar(ptr[i]);
+			retval += _putchar('%');
+			retval += _putchar(*ptr);
 		}
 	}
 

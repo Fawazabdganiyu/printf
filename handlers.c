@@ -1,5 +1,11 @@
 #include "main.h"
 
+int print_char(va_list ap);
+int print_str(va_list ap);
+int print_int(va_list ap);
+int print_per(va_list ap);
+int print_bin(va_list ap);
+
 /**
  * print_char - print a character
  * @ap: The argument pointer to character
