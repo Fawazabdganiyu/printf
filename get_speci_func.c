@@ -32,6 +32,3 @@ print get_speci_func(char ind)
 
 	return (NULL);
 }
-/**
- *
-*/
