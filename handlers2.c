@@ -74,6 +74,7 @@ int print_hex(va_list ap)
 int print_ptr(va_list ap)
 {
 	int i = 0;
+
 	i += _puts("0x7ffe");
 	i += print_hex(ap);
 	return (i);
