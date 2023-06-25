@@ -5,7 +5,7 @@ char *dec_bin(unsigned int num);
 int put_u_int(unsigned int num);
 int put_dec_oct(unsigned int num);
 char *dec_hex(unsigned int num, char h_case);
-const char *reduce_blank(const char *s, va_list ap, int *retval);
+const char *reduce_blank(const char *s);
 
 /**
  * dec_bin - converts decimal to binary
@@ -124,9 +124,8 @@ char *dec_hex(unsigned int num, char h_case)
  *
  * Return: A pointer to the non space character
  */
- const char *reduce_blank(const char *s, va_list ap, int *retval)
+const char *reduce_blank(const char *s)
 {
-	print func;
 	char space = ' ';
 
 	while (1)
@@ -138,16 +137,6 @@ char *dec_hex(unsigned int num, char h_case)
 		s++;
 	}
 
-	/* check if that non space character is one if the specifiers */
-	func = get_speci_func(*s);
-	if (func != NULL)
-	{
-		*retval = func(ap);
-
-		return (s + 2);
-	}
-
-	*retval = 0;
-
-	return (s + 1);
+	return (s);
 }
+

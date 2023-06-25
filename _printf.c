@@ -11,38 +11,32 @@
 int _printf(const char *format, ...)
 {
 	const char *ptr;
-	int retval = 0, add_retval = 0, i;
+	int retval = 0;
 	va_list ap;
 	print func;
-	char space = ' ';
 
 	if (format == NULL)
 		exit(EXIT_FAILURE);
 
 	va_start(ap, format);
 	ptr = format;
-	for (i = 0; ptr[i]; i++)
+	for (; *ptr; ptr++)
 	{
-		if (ptr[i] != '%')
+		if (*ptr != '%')
 		{
-			retval += _putchar(ptr[i]);
+			retval += _putchar(*ptr);
 			continue;
 		}
-
-		func = get_speci_func(ptr[++i]);
+		ptr = reduce_blank(ptr + 1);
+		func = get_speci_func(*ptr);
 		if (func != NULL)
 		{
 			retval += func(ap);
 		}
 		else
 		{
-			retval += _putchar(ptr[i - 1]);
-			retval += _putchar(ptr[i]);
-			if (ptr[i + 1] == space)
-			{
-				ptr = reduce_blank((ptr + i), ap, &add_retval);
-				retval += add_retval;
-			}
+			retval += _putchar('%');
+			retval += _putchar(*ptr);
 		}
 	}
 
