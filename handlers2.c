@@ -4,6 +4,7 @@ int print_unsigned(va_list ap);
 int print_oct(va_list ap);
 int print_HEX(va_list ap);
 int print_hex(va_list ap);
+int print_ptr(va_list ap);
 
 /**
  * print_unsigned - prints an unsigned integer
@@ -63,4 +64,17 @@ int print_hex(va_list ap)
 
 	free(retval);
 	return (n);
+}
+
+/**
+ * print_ptr - prints a pointer
+ * @ap: pointer to argument to print
+ * Return: size of printed characters
+*/
+int print_ptr(va_list ap)
+{
+	int i = 0;
+	i += _puts("0x7ffe");
+	i += print_hex(ap);
+	return (i);
 }

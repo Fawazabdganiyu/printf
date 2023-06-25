@@ -21,6 +21,7 @@ print get_speci_func(char ind)
 		{"o", print_oct},
 		{"x", print_hex},
 		{"X", print_HEX},
+		{"p", print_ptr},
 		{NULL, NULL}
 	};
 
@@ -32,6 +33,3 @@ print get_speci_func(char ind)
 
 	return (NULL);
 }
-/**
- *
-*/

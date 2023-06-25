@@ -8,6 +8,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <limits.h>
+#include <stdint.h>
 
 /**
  * print - custom data type for pointer to function
@@ -42,6 +43,7 @@ int print_unsigned(va_list ap);
 int print_oct(va_list ap);
 int print_HEX(va_list ap);
 int print_hex(va_list ap);
+int print_ptr(va_list ap);
 
 /**
  * struct handle_s - structure for the specifiers and their corresponding
