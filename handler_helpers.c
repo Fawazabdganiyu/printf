@@ -69,19 +69,19 @@ int put_int(int num)
 	}
 	else
 	{
-	sign = num;
-	if (sign < 0)
-		num = -num;
+		sign = num;
+		if (sign < 0)
+			num = -num;
 
-	while (num > 0)
-	{
-		s[i++] = (num % 10) + '0';
-		num /= 10;
-	}
-	if (sign < 0)
-		s[i++] = '-';
+		while (num > 0)
+		{
+			s[i++] = (num % 10) + '0';
+			num /= 10;
+		}
+		if (sign < 0)
+			s[i++] = '-';
 
-	s[i] = '\0';
+		s[i] = '\0';
 	}
 	reverse(s);
 	count = _puts(s);
