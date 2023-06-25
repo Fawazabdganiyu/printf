@@ -14,25 +14,40 @@ const char *reduce_blank(const char *s);
 */
 char *dec_bin(unsigned int num)
 {
-	unsigned int cpy = num, counter = 0;
+	unsigned int cpy, counter = 0;
 	char *bit;
 
-	while (cpy > 0)
+	if (num == 0)
 	{
-		cpy >>= 1;
-		counter++;
+		bit = malloc(sizeof(char) * 2);
+		if (bit == NULL)
+			return (NULL);
+
+		bit[0] = '0';
+		bit[1] = '\0';
+
+		return (bit);
 	}
-
-	bit = malloc(sizeof(char) * counter + 1);
-	if (bit == NULL)
-		return (NULL);
-
-	bit[counter--] = '\0';
-
-	while (num > 0)
+	else
 	{
-		bit[counter--] = (num & 1) + '0';
-		num >>= 1;
+		cpy = num;
+		while (cpy > 0)
+		{
+			cpy >>= 1;
+			counter++;
+		}
+
+		bit = malloc(sizeof(char) * counter + 1);
+		if (bit == NULL)
+			return (NULL);
+
+		bit[counter--] = '\0';
+
+		while (num > 0)
+		{
+			bit[counter--] = (num & 1) + '0';
+			num >>= 1;
+		}
 	}
 
 	return (bit);
