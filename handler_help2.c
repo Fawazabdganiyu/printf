@@ -64,12 +64,20 @@ int put_u_int(unsigned int num)
 	int i = 0, count;
 	char s[INT_BUFFER_SIZE];
 
-	while (num > 0)
+	if (num == 0)
 	{
-		s[i++] = (num % 10) + '0';
-		num /= 10;
+		s[0] = '0';
+		s[1] = '\0';
 	}
-	s[i] = '\0';
+	else
+	{
+		while (num > 0)
+		{
+			s[i++] = (num % 10) + '0';
+			num /= 10;
+		}
+		s[i] = '\0';
+	}
 
 	reverse(s);
 	count = _puts(s);
@@ -88,13 +96,21 @@ int put_dec_oct(unsigned int num)
 	int i, count;
 	char s[INT_BUFFER_SIZE];
 
-	i = 0;
-	while (num > 0)
+	if (num == 0)
 	{
-		s[i++] = (num % 8) + '0';
-		num /= 8;
+		s[0] = '0';
+		s[1] = '\0';
 	}
-	s[i] = '\0';
+	else
+	{
+		i = 0;
+		while (num > 0)
+		{
+			s[i++] = (num % 8) + '0';
+			num /= 8;
+		}
+		s[i] = '\0';
+	}
 
 	reverse(s);
 
@@ -114,20 +130,33 @@ char *dec_hex(unsigned int num, char h_case)
 	char *hex = (h_case == 'x') ? "0123456789abcdef" : "0123456789ABCDEF", *str;
 	unsigned int num_copy = num, count = 0, i = 0;
 
-	while (num_copy > 0)
+	if (num == 0)
 	{
-		count++;
-		num_copy /= 10;
+		str = malloc(sizeof(char) * 2);
+		if (str == NULL)
+			return (NULL);
+
+		str[0] = '0';
+		str[1] = '\0';
 	}
-	str = malloc(sizeof(char) * count + 1);
-	if (str == NULL)
-		return (NULL);
-	while (num > 0)
+	else
 	{
-		str[i++] = hex[num % 16];
-		num /= 16;
+		while (num_copy > 0)
+		{
+			count++;
+			num_copy /= 10;
+		}
+		str = malloc(sizeof(char) * count + 1);
+		if (str == NULL)
+			return (NULL);
+		while (num > 0)
+		{
+			str[i++] = hex[num % 16];
+			num /= 16;
+		}
+		str[i] = '\0';
 	}
-	str[i] = '\0';
+
 	reverse(str);
 	return (str);
 }
@@ -153,4 +182,3 @@ const char *reduce_blank(const char *s)
 
 	return (s);
 }
-
