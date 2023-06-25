@@ -15,9 +15,11 @@ int _printf(const char *format, ...)
 	va_list ap;
 	print func;
 
+	if (format == NULL)
+		exit(EXIT_FAILURE);
+
 	va_start(ap, format);
 	ptr = format;
-
 	for (i = 0; ptr[i]; i++)
 	{
 		if (ptr[i] != '%')
