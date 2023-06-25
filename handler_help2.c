@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 char *dec_bin(unsigned int num);
 int put_u_int(unsigned int num);
