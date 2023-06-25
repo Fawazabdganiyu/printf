@@ -38,6 +38,7 @@ int _printf(const char *format, ...)
 			retval += _putchar(ptr[i - 1]);
 			retval += _putchar(ptr[i]);
 		}
+		retval -= 2;
 	}
 
 	va_end(ap);
