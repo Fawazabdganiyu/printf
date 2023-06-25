@@ -62,6 +62,13 @@ int put_int(int num)
 	int sign, i = 0, count;
 	char s[INT_BUFFER_SIZE];
 
+	if (num == 0)
+	{
+		s[0] = '0';
+		s[1] = '\0';
+	}
+	else
+	{
 	sign = num;
 	if (sign < 0)
 		num = -num;
@@ -75,7 +82,7 @@ int put_int(int num)
 		s[i++] = '-';
 
 	s[i] = '\0';
-
+	}
 	reverse(s);
 	count = _puts(s);
 
