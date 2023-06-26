@@ -56,7 +56,7 @@ int _putwchar(char c)
 {
 	int retval = 0;
 
-	if ((c > 0 && c < 32) || c == 127)
+	if ((c > 0 && c < 32) || c >= 127)
 	{
 		retval += _putchar('\\');
 		retval += _putchar('x');
