@@ -32,6 +32,7 @@ int put_dec_oct(unsigned int num);
 char *dec_hex(unsigned int num, char h_case);
 const char *reduce_blank(const char *format);
 int _puts_S(char *str);
+int _puts_ptr(void *ptr);
 
 /* specifier handlers */
 int print_char(va_list ap);
@@ -44,6 +45,7 @@ int print_oct(va_list ap);
 int print_HEX(va_list ap);
 int print_hex(va_list ap);
 int print_S(va_list);
+int print_ptr(va_list ap);
 
 /**
  * struct handle_s - structure for the specifiers and their corresponding

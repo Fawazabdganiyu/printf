@@ -22,6 +22,7 @@ print get_speci_func(char ind)
 		{"x", print_hex},
 		{"X", print_HEX},
 		{"S", print_S},
+		{"p", print_ptr},
 		{NULL, NULL}
 	};
 
