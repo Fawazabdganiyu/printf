@@ -79,5 +79,5 @@ int print_S(va_list ap)
 	if (s == NULL)
 		s = "(null)";
 
-	return (_puts_S(s));
+	return (_putws(s));
 }

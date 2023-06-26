@@ -33,6 +33,10 @@ char *dec_hex(unsigned int num, char h_case);
 const char *reduce_blank(const char *format);
 int _puts_S(char *str);
 int _puts_ptr(void *ptr);
+int _putwchar(char c);
+int put_hex(unsigned int num);
+int _putws(char *s);
+
 
 /* specifier handlers */
 int print_char(va_list ap);
