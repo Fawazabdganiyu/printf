@@ -4,6 +4,7 @@ int print_unsigned(va_list ap);
 int print_oct(va_list ap);
 int print_HEX(va_list ap);
 int print_hex(va_list ap);
+int print_S(va_list ap);
 
 /**
  * print_unsigned - prints an unsigned integer
@@ -63,4 +64,20 @@ int print_hex(va_list ap)
 
 	free(retval);
 	return (n);
+}
+
+/**
+ * print_S - prints the string with specifier S
+ * @ap: The argument pointer to string
+ *
+ * Return: The numbers of bytes printed
+ */
+int print_S(va_list ap)
+{
+	char *s = va_arg(ap, char *);
+
+	if (s == NULL)
+		s = "(null)";
+
+	return (_puts_S(s));
 }
