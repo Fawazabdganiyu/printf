@@ -14,7 +14,7 @@ int print_ptr(va_list ap)
 
 	ptr = va_arg(ap, void *);
 	if (ptr == NULL)
-		ptr = "(null)";
+		return (_puts("(nil)"));
 
 	return (_puts_ptr(ptr));
 }
