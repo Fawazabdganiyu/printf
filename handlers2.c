@@ -44,10 +44,13 @@ int print_oct(va_list ap)
 int print_HEX(va_list ap)
 {
 	unsigned int num = va_arg(ap, unsigned int);
-	char *retval = dec_hex(num, 'X');
-	int n = _puts(retval);
+	char *str;
+	int n;
 
-	free(retval);
+	if (num == 0)
+		return (_puts("0"));
+	str = dec_hex(num, 'X');
+	n = _puts(str);
 	return (n);
 }
 
@@ -59,10 +62,13 @@ int print_HEX(va_list ap)
 int print_hex(va_list ap)
 {
 	unsigned int num = va_arg(ap, unsigned int);
-	char *retval = dec_hex(num, 'x');
-	int n = _puts(retval);
+	char *str;
+	int n;
 
-	free(retval);
+	if (num == 0)
+		return (_puts("0"));
+	str = dec_hex(num, 'x');
+	n = _puts(str);
 	return (n);
 }
 

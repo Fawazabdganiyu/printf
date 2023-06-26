@@ -64,8 +64,7 @@ int put_int(int num)
 
 	if (num == 0)
 	{
-		s[0] = '0';
-		s[1] = '\0';
+		return (_puts("0"));
 	}
 	else
 	{

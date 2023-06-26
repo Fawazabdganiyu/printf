@@ -75,11 +75,10 @@ int print_bin(va_list ap)
 	int retval;
 
 	num = (unsigned int)va_arg(ap, int);
+	if (num == 0)
+		return (_puts("0"));
 	bit = dec_bin(num);
 
 	retval = _puts(bit);
-
-	free(bit);
-
 	return (retval);
 }

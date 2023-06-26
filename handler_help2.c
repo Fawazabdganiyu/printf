@@ -19,14 +19,7 @@ char *dec_bin(unsigned int num)
 
 	if (num == 0)
 	{
-		bit = malloc(sizeof(char) * 2);
-		if (bit == NULL)
-			return (NULL);
 
-		bit[0] = '0';
-		bit[1] = '\0';
-
-		return (bit);
 	}
 	else
 	{
@@ -66,8 +59,7 @@ int put_u_int(unsigned int num)
 
 	if (num == 0)
 	{
-		s[0] = '0';
-		s[1] = '\0';
+		return (_puts("0"));
 	}
 	else
 	{
@@ -98,8 +90,7 @@ int put_dec_oct(unsigned int num)
 
 	if (num == 0)
 	{
-		s[0] = '0';
-		s[1] = '\0';
+		return (_puts("0"));
 	}
 	else
 	{
@@ -132,12 +123,7 @@ char *dec_hex(unsigned int num, char h_case)
 
 	if (num == 0)
 	{
-		str = malloc(sizeof(char) * 2);
-		if (str == NULL)
-			return (NULL);
 
-		str[0] = '0';
-		str[1] = '\0';
 	}
 	else
 	{
