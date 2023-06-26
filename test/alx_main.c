@@ -12,8 +12,8 @@ int main(void)
     int len, len3, len4;
     int len2;
     unsigned int ui;
-    void *addr;
-    char *add;
+    /*void *addr;*/
+    /*char *add;*/
 char c;
 
 c = 'A';
@@ -22,8 +22,8 @@ c = 'A';
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;
-    addr = &ui;
-    add = addr;
+    /*addr = &ui;*/
+    
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len2, len2);
     _printf("Negative:[%d]\n", 0);
@@ -44,8 +44,10 @@ c = 'A';
     printf("Character:[%c]\n", 'H');
     _printf("String:[%s]\n", "I am a string !");
     printf("String:[%s]\n", "I am a string !");
-    _printf("Address:[%x]\n", add);
-    printf("Address:[%p]\n", addr);
+    len = _printf("Address:[%p]\n", NULL);
+    len2 = printf("Address:[%p]\n", NULL);
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
     len = _printf("Percent:[%%]\n");
     len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);

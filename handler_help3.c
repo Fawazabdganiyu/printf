@@ -61,6 +61,7 @@ int _puts_ptr(void *ptr)
 	retval += _putchar('x');
 
 
+	/*count = */
 	for (i = (count - 1) * 4; i >=  0; i -= 4)
 	{
 		digits = (value >> i) & 15;
