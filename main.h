@@ -37,7 +37,8 @@ int _putwchar(char c);
 int put_hex(unsigned int num);
 int _putws(char *s);
 int put_reverse(char *s);
-int rot13(char *str);
+int rot13(char str);
+int put_rot13(char *str);
 
 /* specifier handlers */
 int print_char(va_list ap);

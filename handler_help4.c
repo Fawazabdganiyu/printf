@@ -1,6 +1,8 @@
 #include "main.h"
 
 int put_reverse(char *s);
+int rot13(char str);
+int put_rot13(char *str);
 
 /**
  * put_reverse - prints a string in reverse form
@@ -22,41 +24,37 @@ int put_reverse(char *s)
 }
 /**
  * rot13 - encodes a string using rot13.
- * @str: string to encode
+ * @c: string to encode
  *
  * Return: Encoded and decoded string
  */
-int rot13(char *str)
+int rot13(char c)
 {
-	int i, j, k = 0;
-	char rot13_dict[52][2] = { {'A', 'N'}, {'B', 'O'}, {'C', 'P'}, {'D', 'Q'},
-				   {'E', 'R'}, {'F', 'S'}, {'G', 'T'}, {'H', 'U'},
-				   {'I', 'V'}, {'J', 'W'}, {'K', 'X'}, {'L', 'Y'},
-				   {'M', 'Z'}, {'N', 'A'}, {'O', 'B'}, {'P', 'C'},
-				   {'Q', 'D'}, {'R', 'E'}, {'S', 'F'}, {'T', 'G'},
-				   {'U', 'H'}, {'V', 'I'}, {'W', 'J'}, {'X', 'K'},
-				   {'Y', 'L'}, {'Z', 'M'}, {'a', 'n'}, {'b', 'o'},
-				   {'c', 'p'}, {'d', 'q'}, {'e', 'r'}, {'f', 's'},
-				   {'g', 't'}, {'h', 'u'}, {'i', 'v'}, {'j', 'w'},
-				   {'k', 'x'}, {'l', 'y'}, {'m', 'z'}, {'n', 'a'},
-				   {'o', 'b'}, {'p', 'c'}, {'q', 'd'}, {'r', 'e'},
-				   {'s', 'f'}, {'t', 'g'}, {'u', 'h'}, {'v', 'i'},
-				   {'w', 'j'}, {'x', 'k'}, {'y', 'l'}, {'z', 'm'}, };
+	int retval = 0;
 
-	for (i = 0; str[i]; i++)
-	{
-		for (j = 0; j < 52; j++)
-		{
-			if (str[i] == rot13_dict[j][0])
-			{
-				str[i] = rot13_dict[j][1];
-				break;
-			}
-		}
-	}
-	while (str[k])
-		_putchar(str[k++]);
-
-	return (k);
+	if ((c >= 'A' && c <= 'M') || (c >= 'a' && c <= 'm'))
+		retval += _putchar(c + 13);
+	else if ((c > 'M' && c <= 'Z') || (c > 'm' && c <= 'z'))
+		retval += _putchar(c - 13);
+	else
+		retval += _putchar(c);
+	return (retval);
 }
 
+/**
+ * put_rot13 - prints a string of alpha char in rot13
+ * @str: string to print
+ *
+ * Return: number of printed characters
+*/
+int put_rot13(char *str)
+{
+	int retval = 0;
+
+	while (*str)
+	{
+		rot13(*(str++));
+		retval++;
+	}
+	return (retval);
+}

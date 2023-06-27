@@ -49,5 +49,5 @@ int print_rot(va_list ap)
 		return (_puts("(null)"));
 
 
-	return (rot13(str));
+	return (put_rot13(str));
 }
