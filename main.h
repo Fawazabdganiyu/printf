@@ -39,6 +39,7 @@ int _putws(char *s);
 int put_reverse(char *s);
 int rot13(char str);
 int put_rot13(char *str);
+int _strcmp(char *s1, char *s2);
 
 /* specifier handlers */
 int print_char(va_list ap);
@@ -54,6 +55,7 @@ int print_S(va_list);
 int print_ptr(va_list ap);
 int print_rev(va_list ap);
 int print_rot(va_list ap);
+int print_plus(va_list ap);
 
 /**
  * struct handle_s - structure for the specifiers and their corresponding
