@@ -24,6 +24,7 @@ print get_speci_func(char ind)
 		{"S", print_S},
 		{"p", print_ptr},
 		{"r", print_rev},
+		{"R", print_rot},
 		{NULL, NULL}
 	};
 
