@@ -25,14 +25,14 @@ int _putchar(char c)
 int _puts(char *s)
 {
 	char *str = (s == NULL) ? "(null)" : s;
-	int i = 0;
+	int i = 0, retval = 0;
 
 	while (str[i])
 	{
-		_putchar(str[i++]);
+		retval += _putchar(str[i++]);
 	}
 
-	return (_strlen(str));
+	return (retval);
 }
 
 /**
@@ -64,7 +64,7 @@ int put_int(int num)
 
 	if (num == 0)
 	{
-		return (_puts("0"));
+		return (_putchars('0'));
 	}
 	else
 	{
