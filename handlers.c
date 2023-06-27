@@ -46,6 +46,9 @@ int print_int(va_list ap)
 {
 	int i = va_arg(ap, int);
 
+	if (i == 0)
+		return (_putchar('0'));
+
 	return (put_int(i));
 }
 
