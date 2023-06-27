@@ -1,6 +1,7 @@
 #include "main.h"
 
 int print_ptr(va_list ap);
+int print_rev(va_list ap);
 
 /**
  * print_ptr - prints pointer value
@@ -17,4 +18,18 @@ int print_ptr(va_list ap)
 		return (_puts("(nil)"));
 
 	return (_puts_ptr(ptr));
+}
+
+/**
+ * print_rev - prints a string in reverse
+ * @ap: pointer to variable to print
+ * Return: length of string it printed
+*/
+int print_rev(va_list ap)
+{
+	char *str = va_arg(ap, char *);
+
+	if (str == NULL)
+		return (_puts("(null)"));
+	return (put_reverse(str));
 }
