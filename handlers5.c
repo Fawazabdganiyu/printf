@@ -8,13 +8,12 @@
  */
 int print_rot(va_list ap)
 {
-	char *rot, *str;
+	char *str;
 
 	str = va_arg(ap, char *);
 	if (str == NULL)
 		return (_puts("(null)"));
 
-	rot = rot13(str);
 
-	return (_puts(rot));
+	return (rot13(str));
 }

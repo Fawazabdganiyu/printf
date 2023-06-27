@@ -36,7 +36,7 @@ int _puts_ptr(void *ptr);
 int _putwchar(char c);
 int put_hex(unsigned int num);
 int _putws(char *s);
-char *rot13(char *str);
+int rot13(char *str);
 
 /* specifier handlers */
 int print_char(va_list ap);

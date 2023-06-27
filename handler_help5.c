@@ -6,9 +6,9 @@
  *
  * Return: Encoded and decoded string
  */
-char *rot13(char *str)
+int rot13(char *str)
 {
-	int i, j;
+	int i, j, k = 0;
 	char rot13_dict[52][2] = { {'A', 'N'}, {'B', 'O'}, {'C', 'P'}, {'D', 'Q'},
 				   {'E', 'R'}, {'F', 'S'}, {'G', 'T'}, {'H', 'U'},
 				   {'I', 'V'}, {'J', 'W'}, {'K', 'X'}, {'L', 'Y'},
@@ -23,7 +23,7 @@ char *rot13(char *str)
 				   {'s', 'f'}, {'t', 'g'}, {'u', 'h'}, {'v', 'i'},
 				   {'w', 'j'}, {'x', 'k'}, {'y', 'l'}, {'z', 'm'}, };
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i]; i++)
 	{
 		for (j = 0; j < 52; j++)
 		{
@@ -34,6 +34,8 @@ char *rot13(char *str)
 			}
 		}
 	}
+	while (str[k])
+		_putchar(str[k++]);
 
-	return (str);
+	return (k);
 }
