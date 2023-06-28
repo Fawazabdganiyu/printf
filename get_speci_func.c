@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * wrapper - wraps of all specifiers and match them with
+ * get_speci_func - wraps of all specifiers and match them with
  *	corresponding function
  * @ind: indicator for function to return
  *
@@ -36,3 +36,4 @@ print get_speci_func(char ind)
 
 	return (NULL);
 }
+

@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 int _putchar(char c);
 int _puts(char *s);
@@ -59,32 +60,43 @@ int _strlen(char *s)
 */
 int put_int(int num)
 {
-	int sign, i = 0, count;
-	char s[INT_BUFFER_SIZE];
+	/*declare str (size = 11) and othe variables*/
+	char *str;
+	int i = 0, store, count;
 
 	if (num == 0)
+		return (_puts("0"));
+	str = malloc(12 * sizeof(char));
+	if (str == NULL)
+		return (-1);
+
+	/*get absolute if num is negative*/
+	store = num;
+	if (num == INT_MIN)
 	{
-		return (_putchar('0'));
+		str[i++] = '8';
+		num /= 10;
 	}
-	else
+	if (num < 0)
 	{
-		sign = num;
-		if (sign < 0)
-			num = -num;
-
-		while (num > 0)
-		{
-			s[i++] = (num % 10) + '0';
-			num /= 10;
-		}
-		if (sign < 0)
-			s[i++] = '-';
-
-		s[i] = '\0';
+		num = -num;
 	}
-	reverse(s);
-	count = _puts(s);
+	/*store each digit in str by using % 10*/
+	while (num > 0)
+	{
+		str[i++] = num % 10 + '0';
+		num /= 10;
+	}
 
+	/*if number is negative append a '-'*/
+	if (store < 0)
+	{
+		str[i++] = '-';
+	}
+	/*reverse string and null terminate;*/
+	str[i++] = '\0';
+	reverse(str);
+	count = _puts(str);
 	return (count);
 }
 
