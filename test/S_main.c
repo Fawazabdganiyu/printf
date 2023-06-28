@@ -18,6 +18,16 @@ int main(void)
 	_printf("%S\n", "Best\aSchool");
 
 	_printf("%S\n", "Best\tSchool");
+	_printf("%S\n", "Hello\vWorld\r\n");
+	_printf("%S\n", "\a\b\f\n\r\t\v");
+	_printf("%S\n", "\tHello World\b");
+	_printf("%S\n", "");
+	_printf("%S\n", NULL);
+	_printf("%%\n");
+	_printf("%z\n", 42);
+	_printf("%\n", 42);
+	_printf("Hello %s %S\n", "World", "!\n");
+	_printf("Hello\tWorld\n");
 
 	printf("len = %d len2 = %d\n", len, len2);
 

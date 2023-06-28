@@ -60,7 +60,7 @@ int _putwchar(char c)
 	{
 		retval += _putchar('\\');
 		retval += _putchar('x');
-		if (c <= 10)
+		if (c <= 15)
 			_putchar('0');
 		retval += put_hex(c);
 	}

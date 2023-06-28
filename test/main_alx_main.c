@@ -13,6 +13,8 @@ int main(void)
     int len2, len3, len4, len5;
     unsigned int ui;
     void *addr;
+    int* ptr2 = malloc(sizeof(int));
+    char s[] = "ROT13 (\"rotate by 13 places\", sometimes hyphenated ROT-13) is a simple letter substitution cipher.\n";
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
@@ -57,6 +59,18 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%y]\n");
     printf("Unknown:[%y]\n");
+    _printf("String with spaces: %r\n", "Hello World");
+    _printf("String with special characters: %r\n", "Hello, World!");
+    _printf("%     s\n", "\n MMm\n");
+    printf("%     s\n", "\n MMm\n");
+    _printf("Non-null pointer: %p\n", ptr2);
+    printf("Non-null pointer: %p\n", ptr2);
+    len = _printf("%R\n", s);
+    printf("------------------------------------\n");
+    printf("Now is control\n");
+    len2 = printf("%s\n", s);
+    _printf("%S\n", "Hello\vWorld\r\n");
+	_printf("%S\n", "\a\b\f\n\r\t\v");
 
     _printf("%b\n", 98);
     len5 = _printf("%S\n", "Best\nSchool");
