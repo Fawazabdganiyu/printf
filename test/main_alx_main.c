@@ -108,19 +108,31 @@ int main(void)
     printf("-----------------------------------------------------------------------\n");
     len = _printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
     len2 = printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+
     _printf("%d\n", len);
     printf("%d\n", len);
     printf("-----------------------------------------------------------------------\n");
     len = _printf("%i", INT_MIN);
     len2 = printf("%i", INT_MIN);
+
     _printf("%i\n", len);
     printf("%i\n", len2);
     printf("-----------------------------------------------------------------------\n");
     len = _printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
     len2 = printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+    
     _printf("%d\n", len);
     printf("%d\n", len);
     printf("-----------------------------------------------------------------------\n");
+    len = _printf("%");
+    _putchar('\n');
+    len2 = printf("%");
+    _putchar('\n');
+
+    _printf("%d\n", len);
+    _printf("%d\n", len2);
+    printf("-----------------------------------------------------------------------\n");
+
 
 
     return (0);

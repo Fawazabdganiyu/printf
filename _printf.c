@@ -22,6 +22,8 @@ int _printf(const char *format, ...)
 	ptr = format;
 	for (; *ptr; ptr++)
 	{
+		if ((_con_strlen(format) == 1) && (format[0] == '%' && format[1] == '\0'))
+			return (-1);
 		if (*ptr != '%')
 		{
 			retval += _putchar(*ptr);

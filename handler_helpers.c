@@ -54,6 +54,23 @@ int _strlen(char *s)
 }
 
 /**
+ * _con_strlen - calcs the len of const str
+ * @s: str of whose length to count
+ * Return: strings length
+*/
+int _con_strlen(const char *s)
+{
+	int i = 0;
+
+	while (s[i])
+	{
+		i++;
+	}
+
+	return (i);
+}
+
+/**
  * put_int - prints integer
  * @num: number to be printed
  * Return: length of num

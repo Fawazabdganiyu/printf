@@ -23,6 +23,7 @@ int _printf(const char *format, ...);
 /* handler_helpers */
 int _putchar(char c);
 int _strlen(char *s);
+int _con_strlen(const char *s);
 int _puts(char *s);
 int put_int(int num);
 void reverse(char *s);
