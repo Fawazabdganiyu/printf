@@ -61,7 +61,7 @@ int _putwchar(char c)
 		retval += _putchar('\\');
 		retval += _putchar('x');
 		if (c <= 15)
-			_putchar('0');
+			retval += _putchar('0');
 		retval += put_hex(c);
 	}
 	else
@@ -93,12 +93,12 @@ int put_hex(unsigned int num)
 int _putws(char *s)
 {
 	char *str = (s == NULL) ? "(null)" : s;
-	int i = 0;
+	int i = 0, retval = 0;
 
 	while (str[i] != '\0')
 	{
-		_putwchar(str[i++]);
+		retval += _putwchar(str[i++]);
 	}
 
-	return (_strlen(str));
+	return (retval);
 }
