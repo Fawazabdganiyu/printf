@@ -12,10 +12,10 @@ print get_speci_func(char ind)
 	int i;
 	handle_t control[] = {
 		{"s", print_str},
-		{"i", print_int},
-		{"d", print_int},
 		{"c", print_char},
 		{"%", print_per},
+		{"d", print_int},
+		{"i", print_int},
 		{"b", print_bin},
 		{"u", print_unsigned},
 		{"o", print_oct},

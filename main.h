@@ -10,6 +10,17 @@
 #include <limits.h>
 
 /**
+ * flags_s - structure for flags
+ * @sign: The flag
+ * @flags: A pointer to specifc flag function
+ */
+typedef struct flags_s
+{
+	char sign;
+	int (*flag)(const char **format, va_list ap);
+} flags_t;
+
+/**
  * print - custom data type for pointer to function
  */
 typedef int (*print)(va_list ap);
@@ -19,6 +30,10 @@ print get_speci_func(char);
 
 /* main custum function */
 int _printf(const char *format, ...);
+
+/* flags functions*/
+int (*get_flag(char ptr))(const char **ptr, va_list ap);
+int plus(const char **ptr, va_list ap);
 
 /* handler_helpers */
 int _putchar(char c);
