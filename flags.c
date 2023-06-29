@@ -1,8 +1,48 @@
+#include <stdio.h>
 #include "main.h"
+
+/**
+ * space - prints ' ' if the flag in indicated
+ * @ptr: A pointer to a pointer to formated string
+ * @ap: argument pointer
+ *
+ * Return: The bytes printed  if the flag is ' ', 0 otherwise
+ */
+int space(const char **ptr, va_list ap)
+{
+	int retval = 0, num;
+
+	(*ptr)++;
+	if (**ptr == 'i' || **ptr == 'd')
+	{
+		num = va_arg(ap, int);
+		(*ptr)--;
+	}
+	else
+	{
+		(*ptr)--;
+		return (0);
+	}
+
+	if (**ptr == ' ')
+	{
+		if (num >= 0)
+			retval += _putchar(' ');
+
+		(*ptr) += 2;
+		if (num == 0)
+			return (_putchar('0') + retval);
+
+		return (put_int(num) + retval);
+	}
+
+	return (0);
+}
 
 /**
  * hash - prints # if the flag in indicated
  * @ptr: A pointer to a pointer to formated string
+ * @ap: argument pointer
  *
  * Return: The number of bytes printed if flag is #, 0 otherwise
  */
@@ -15,11 +55,12 @@ int hash(const char **ptr, va_list ap)
 	retval = 0;
 	if (**ptr == '#')
 	{
-		if (**(ptr + 1) == 'o' && **(ptr - 1) != 0)
+		(*ptr)++;
+		if (**ptr == 'o')
 		{
 			retval += _putchar('0');
 		}
-		else if (**(ptr + 1) == 'x')
+		else if (**ptr == 'x')
 		{
 			retval += _putchar('0');
 			retval += _putchar('x');
@@ -29,8 +70,6 @@ int hash(const char **ptr, va_list ap)
 			retval += _putchar('0');
 			retval += _putchar('X');
 		}
-
-		(*ptr)++;
 		return (retval);
 	}
 
@@ -40,19 +79,20 @@ int hash(const char **ptr, va_list ap)
 /**
  * plus - prints + if the flag in indicated
  * @ptr: A pointer to a pointer to formated string
+ * @ap: argument pointer
  *
- * Return: 1 if the flag is +, 0 otherwise
+ * Return: bytes printed if the flag is +, 0 otherwise
  */
 int plus(const char **ptr, va_list ap)
 {
 	int retval = 0, num = va_arg(ap, int);
 
-	if (**ptr == '+' && num > 0)
+	if (**ptr == '+' && num >= 0)
 	{
 		retval += _putchar('+');
-		(*ptr) += 1;
 	}
 
+	(*ptr) += 2;
 	if (num == 0)
 		return (_putchar('0') + retval);
 
@@ -61,8 +101,9 @@ int plus(const char **ptr, va_list ap)
 
 /**
  * get_flag - gets the input flag function
- *
  * @ptr: The flag character to be tested
+ *
+ * Return: A pointer to  function that returns int
  */
 int (*get_flag(char ptr))(const char **ptr, va_list ap)
 {
@@ -70,6 +111,7 @@ int (*get_flag(char ptr))(const char **ptr, va_list ap)
 
 	flags_t flags[] = {
 		{'+', plus},
+		{' ', space},
 		{'#', hash},
 		{'\0', '\0'}
 	};

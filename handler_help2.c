@@ -157,13 +157,18 @@ const char *reduce_blank(const char *s)
 {
 	char space = ' ';
 
-	while (1)
+	if (*s == space)
 	{
-		if (*s != space)
+		while (1)
 		{
-			break;
+			if (*s != space)
+			{
+				break;
+			}
+			s++;
 		}
-		s++;
+
+		return (s - 1);
 	}
 
 	return (s);

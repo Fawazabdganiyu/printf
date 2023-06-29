@@ -10,7 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	const char *ptr;
+	const char *ptr, plus = '+', space = ' ';
 	int retval = 0;
 	va_list ap;
 	print func;
@@ -33,13 +33,17 @@ int _printf(const char *format, ...)
 		ptr = reduce_blank(ptr + 1);
 		flag = get_flag(*ptr);
 		if (flag)
-			retval += flag(&ptr, ap);
-		if (*(ptr - 1) == '+')
 		{
-			ptr++;
-			continue;
+			retval += flag(&ptr, ap);
+			if (*(ptr - 2) == plus || *(ptr - 2) == space)
+			{
+				ptr -= 1;
+				continue;
+			}
 		}
-		func = get_speci_func(*ptr);
+/*		if (*ptr == ' ')
+			ptr++;
+*/		func = get_speci_func(*ptr);
 		if (func != NULL)
 		{
 			retval += func(ap);
