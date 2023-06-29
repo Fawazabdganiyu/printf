@@ -34,11 +34,6 @@ int _printf(const char *format, ...)
 		flag = get_flag(*ptr);
 		if (flag)
 			retval += flag(&ptr, ap);
-		if (*(ptr - 1) == '+')
-		{
-			ptr++;
-			continue;
-		}
 		func = get_speci_func(*ptr);
 		if (func != NULL)
 		{
