@@ -18,12 +18,13 @@ int space(const char **ptr, va_list ap)
 	if (**ptr == ' ')
 	{
 		(*ptr)++;
-		if (**ptr == '+' || num < 0)
+		if (**ptr == '+')
 			(*ptr)++;
 		else if (**ptr == '%')
 			;
 		else if (num >= 0)
 			retval += _putchar(' ');
+		else if (num < 0)
 
 		va_end(aq);
 		return (retval);
