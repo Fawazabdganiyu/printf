@@ -20,7 +20,7 @@ int space(const char **ptr, va_list ap)
 		(*ptr)++;
 		if (**ptr == '+' || num < 0)
 			(*ptr)++;
-		else if (**ptr =='%')
+		else if (**ptr == '%')
 			;
 		else if (num >= 0)
 			retval += _putchar(' ');
