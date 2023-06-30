@@ -25,6 +25,8 @@ int _printf(const char *format, ...)
 	{
 		if ((_con_strlen(format) == 1) && (format[0] == '%' && format[1] == '\0'))
 			return (-1);
+		if ((ptr[0] == '%' && ptr[1] == ' ' && ptr[2] == '\0'))
+			return (-1);
 		if (*ptr != '%')
 		{
 			retval += _putchar(*ptr);

@@ -15,22 +15,22 @@ int main(void)
 	len = _printf("% ");
 	len2 = printf("% ");
 	printf("Len: %d Len2: %d\n", len, len2);
-/*	fflush(stdout);
+	fflush(stdout);
 	if (len != len2)
 	{
 		printf("Lengths differ.\n");
 		fflush(stdout);
 		return (1);
 	}
-*/	len = _printf("% % % % ");
-	len2 = printf("% % % % ");
+	len = _printf("% % % % ");
+	len2 = _printf("% % % % ");
 	printf("Len: %d Len2: %d\n", len, len2);
 	fflush(stdout);
-/*	if (len != len2)
+	if (len != len2)
 	{
 		printf("Lengths differ.\n");
 		fflush(stdout);
 		return (1);
 	}
-*/	return (0);
+	return (0);
 }
