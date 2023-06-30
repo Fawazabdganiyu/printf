@@ -17,10 +17,11 @@ int space(const char **ptr, va_list ap)
 	num = va_arg(aq, int);
 	if (**ptr == ' ')
 	{
-		if (num >= 0)
-			retval += _putchar(' ');
-
 		(*ptr)++;
+		if (**ptr == '+' || num < 0)
+			(*ptr)++;
+		else if (num >= 0)
+			retval += _putchar(' ');
 
 		va_end(aq);
 		return (retval);
@@ -39,28 +40,37 @@ int space(const char **ptr, va_list ap)
  */
 int hash(const char **ptr, va_list ap)
 {
-	int retval;
+	int retval, num;
+	va_list aq;
 
-	(void)ap;
-
+	va_copy(aq, ap);
 	retval = 0;
 	if (**ptr == '#')
 	{
+		num = va_arg(aq, int);
 		(*ptr)++;
 		if (**ptr == 'o')
 		{
-			retval += _putchar('0');
+			if (num != 0)
+				retval += _putchar('0');
 		}
 		else if (**ptr == 'x')
 		{
-			retval += _putchar('0');
-			retval += _putchar('x');
+			if (num != 0)
+			{
+				retval += _putchar('0');
+				retval += _putchar('x');
+			}
 		}
 		else
 		{
-			retval += _putchar('0');
-			retval += _putchar('X');
+			if (num != 0)
+			{
+				retval += _putchar('0');
+				retval += _putchar('X');
+			}
 		}
+		va_end(aq);
 		return (retval);
 	}
 
@@ -83,10 +93,16 @@ int plus(const char **ptr, va_list ap)
 	num = va_arg(aq, int);
 	if (**ptr == '+')
 	{
-		if (num >= 0)
-			retval += _putchar('+');
-
 		(*ptr)++;
+		if (**ptr == ' ')
+		{
+			retval += _putchar('+');
+			(*ptr)++;
+		}
+		else if (num >= 0)
+		{
+			retval += _putchar('+');
+		}
 		va_end(aq);
 		return (retval);
 	}
